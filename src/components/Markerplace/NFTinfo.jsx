@@ -9,31 +9,27 @@ class NFTinfo extends React.Component {
         return (
             <div key={this.props.NFT.tokenID} className="mt-4">
                 <p>
-                    <span className="font-weight-bold">tokenID</span> :{" "}
+                    <span className="font-weight-bold">作品ID：</span>{" "}
                     {this.props.NFT.tokenID}
                 </p>
                 <p>
-                    <span className="font-weight-bold">Name</span> :{" "}
+                    <span className="font-weight-bold">作品名：</span>{" "}
                     {this.props.NFT.tokenName}
                 </p>
                 <p>
-                    <span className="font-weight-bold">Minted By</span> :{" "}
+                    <span className="font-weight-bold">铸造者：</span>{" "}
                     {this.props.NFT.mintedBy}
                 </p>
                 <p>
-                    <span className="font-weight-bold">Current Owner</span> :{" "}
+                    <span className="font-weight-bold">拥有者：</span>{" "}
                     {this.props.NFT.currentOwner}
                 </p>
                 <p>
-                    <span className="font-weight-bold">Previous Owner</span> :{" "}
-                    {this.props.NFT.previousOwner}
-                </p>
-                <p>
-                    <span className="font-weight-bold">Price</span> :{" "}
+                    <span className="font-weight-bold">价格：</span>{" "}
                     {window.web3.utils.fromWei(this.props.NFT.price,"Ether")} ETH
                 </p>
                 <p>
-                    <span className="font-weight-bold">Number of Transfers</span> :{" "}
+                    <span className="font-weight-bold">交易次数：</span>{" "}
                     {this.props.NFT.transNum}
                 </p>
                 {
@@ -43,18 +39,18 @@ class NFTinfo extends React.Component {
                                 className="btn btn-outline-success mt-4 w-50"
                                 style={{ fontSize: "0.8rem", letterSpacing: "0.14rem" }}
                                 onClick={ () => {
-                                    let minBid = prompt("Please input minBid");
-                                    let duration = prompt("Please input duration");
+                                    let minBid = prompt("设置起拍价");
+                                    let duration = prompt("设置持续时间");
                                     this.props.NFTContract.methods.beginAuction(this.props.NFT.tokenID, minBid, duration).send({ from: this.props.accountAddress, gas: '3000000'}).on("confirmation", () => {
                                         window.location.reload();
                                     });
                                 }}
                             >
-                                Sale
+                                出售
                             </button>
                         ) : (
                             <p>
-                                <span className="font-weight-bold">End Time</span> :{" "}
+                                <span className="font-weight-bold">结束时间：</span>{" "}
                                 {this.props.Auction.endTime}
                             </p>
                         )
@@ -63,11 +59,11 @@ class NFTinfo extends React.Component {
                             !this.props.Auction.ended ? (
                                 <div>
                                 <p>
-                                    <span className="font-weight-bold">Highest Bidder</span> :{" "}
+                                    <span className="font-weight-bold">最高出价者</span> :{" "}
                                     {this.props.Auction.highestBidder}
                                 </p>
                                 <p>
-                                    <span className="font-weight-bold">Highest Bid</span> :{" "}
+                                    <span className="font-weight-bold">最高出价</span> :{" "}
                                     {this.props.Auction.highestBid}
                                 </p>
                                 <botton
@@ -78,7 +74,7 @@ class NFTinfo extends React.Component {
                                         this.props.NFTContract.methods.increaseBid(this.props.NFT.tokenID, bid).send({ from: this.props.accountAddress, gas: '3000000'});
                                       }}
                                 >
-                                    Bid
+                                    出价
                                 </botton>
                                 </div>
                             ) : (
@@ -91,14 +87,14 @@ class NFTinfo extends React.Component {
                                                 this.props.NFTContract.methods.claimNFT(this.props.NFT.tokenID).send({from: this.props.accountAddress, value: this.props.Auction.highestBid, gas: '3000000'});
                                             }}
                                         >
-                                            Claim
+                                            认领
                                         </botton>
                                     ) : (
                                         <botton
                                             className="btn btn-outline-danger mt-4 w-50"
                                             style={{ fontSize: "0.8rem", letterSpacing: "0.14rem" }}
                                         >
-                                            Waiting for claimed
+                                            等待认领
                                         </botton>
                                     )
                                 ) : (
@@ -111,7 +107,7 @@ class NFTinfo extends React.Component {
                                 className="btn btn-outline-danger mt-4 w-50"
                                 style={{ fontSize: "0.8rem", letterSpacing: "0.14rem" }}
                             >
-                                Not on sale
+                                暂未拍卖
                             </botton>
                         )
                     )

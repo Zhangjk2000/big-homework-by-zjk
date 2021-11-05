@@ -1,16 +1,15 @@
 import React from "react";
 
-const NoContract = () => {
+const disconnect = () => {
   return (
-    <div className="jumbotron">
-      <h3>NFT Auction Contract Not Detected In This Network.</h3>
-      <hr className="my-4" />
-      <p className="lead">
-        Connect Metamask to Kovan Testnet Or Localhost 7545 running a custom RPC
-        like Ganache.
+    <div>
+      <h1>未连接...</h1>
+      <hr className="my-5" />
+      <p className="font-italic">
+      请将Metamask连接到运行自定义RPC(如Ganache)的Kovan Testnet或Localhost。
       </p>
     </div>
   );
 };
 
-export default NoContract;
+export default disconnect;

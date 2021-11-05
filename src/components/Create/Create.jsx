@@ -46,8 +46,8 @@ class Create extends React.Component {
     render() {
         return (
             <div>
-                <div className="jumbotron">
-                    <h1 className="display-5">Create your NFT</h1>
+                <div className="badge-light">
+                    <h1 className="display-6"> 铸造NFT</h1>
                 </div>
                 <div className="p-4 mt-1 border">
                     <form onSubmit={this.onSubmit}>
@@ -56,14 +56,14 @@ class Create extends React.Component {
                           required
                           type="text"
                           value={this.state.NFTName}
-                          className="form-control"
-                          placeholder="Enter Your NFT's Name"
+                          className="order-xl-first"
+                          placeholder="作品名称"
                           onChange={(e) =>
                             this.setState({ NFTName: e.target.value })
                           }
                         />
-                        <button className="mt-3 btn btn-outline-primary" type="submit">
-                            Submit
+                        <button className="order-xl-first" type="submit">
+                            确定
                         </button>
                     </form>
                 </div>

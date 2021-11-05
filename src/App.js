@@ -10,7 +10,6 @@ import NoContract from "./components/NoContract";
 import Loading from "./components/Loading/Loading";
 import Marketplace from "./components/Markerplace/Marketplace";
 import Create from "./components/Create/Create";
-import Queries from "./components/Queries/Queries";
 import MyTokens from "./components/MyTokens/MyTokens"
 import MyAuctions from "./components/MyAuctions/MyAuctions";
 
@@ -181,33 +180,7 @@ class App extends React.Component {
                                 currentTime={this.state.currentTime}
                             />
                         )}
-                    />
-                    {/* <Route
-                        path="/my-auctions"
-                        exact
-                        render={() => (
-                            <MyAuctions
-                                accountAddress={this.state.accountAddress}
-                                NFTs={this.state.NFTs}
-                                NFTCount={this.state.NFTCount}
-                                NFTContract={this.state.NFTContract}
-                                Auctions={this.state.Auctions}
-                            />
-                        )}
-                    /> */}
-                    <Route
-                        path="/queries"
-                        exact
-                        render={() => (
-                            <Queries
-                                accountAddress={this.state.accountAddress}
-                                NFTs={this.state.NFTs}
-                                NFTCount={this.state.NFTCount}
-                                NFTContract={this.state.NFTContract}
-                                Auctions={this.state.Auctions}
-                            />
-                        )}
-                    />
+                    />                    
                 </HashRouter>
                 )
             }

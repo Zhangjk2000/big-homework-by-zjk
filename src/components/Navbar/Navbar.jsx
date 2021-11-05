@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div className="container">
-        <Link to="/" className="navbar-brand ml-2">
-          Cryptoplat
+    <nav className="navbar navbar-expand-lg bg-light navbar-light">
+      <div className="container-xl">
+        <Link to="/" className="navbar-brand">
+          NFT拍卖平台
         </Link>
         <button
           className="navbar-toggler"
@@ -17,32 +17,22 @@ const Navbar = () => {
         </button>
         <div id="navbarNav" className="collapse navbar-collapse">
           <ul
-            style={{ fontSize: "0.8rem", letterSpacing: "0.2rem" }}
+            style={{ fontSize: "1.0rem", letterSpacing: "0.6rem" }}
             className="navbar-nav ml-auto"
           >
             <li className="nav-item">
               <Link to="/marketplace" className="nav-link">
-                Marketplace
+                火热拍卖
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/create" className="nav-link">
-                create
+                NFT铸造
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/my-tokens" className="nav-link">
-                My Tokens
-              </Link>
-            </li>
-            {/* <li className="nav-item">
-              <Link to="/my-auctions" className="nav-link">
-                My Auctions
-              </Link>
-            </li> */}
-            <li className="nav-item">
-              <Link to="/queries" className="nav-link">
-                Queries
+                我的作品
               </Link>
             </li>
           </ul>
